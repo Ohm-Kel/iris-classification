@@ -1,5 +1,8 @@
 # Iris Classification
 
+![CI](https://github.com/Ohm-Kel/iris-classification/actions/workflows/ci.yml/badge.svg)
+![License: MIT](https://img.shields.io/badge/license-MIT-black.svg)
+
 Classifies Iris flowers into three species (setosa, versicolor, virginica) from four measurements using logistic regression.
 
 ## How it works
