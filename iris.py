@@ -1,7 +1,10 @@
+from pathlib import Path
+
+import matplotlib.pyplot as plt
 from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import ConfusionMatrixDisplay, accuracy_score
+from sklearn.model_selection import train_test_split
 
 # 1. Load: 150 flowers, 4 measurements each (X), species label (y)
 iris = load_iris()
@@ -19,3 +22,13 @@ model.fit(X_train, y_train)
 # 4. Evaluate: predict the test flowers and compare with the true labels
 y_pred = model.predict(X_test)
 print(f"Model accuracy: {accuracy_score(y_test, y_pred):.2f}")
+
+# 5. Confusion matrix: rows = true species, columns = predicted species
+Path("docs").mkdir(exist_ok=True)
+ConfusionMatrixDisplay.from_predictions(
+    y_test, y_pred, display_labels=iris.target_names, cmap="Greys"
+)
+plt.title("Confusion matrix (test set)")
+plt.tight_layout()
+plt.savefig("docs/confusion_matrix.png", dpi=150)
+print("Saved confusion matrix to docs/confusion_matrix.png")

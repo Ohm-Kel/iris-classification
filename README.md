@@ -15,6 +15,8 @@ Classifies Iris flowers into three species (setosa, versicolor, virginica) from 
 |----------|-----------------------|
 | Accuracy | 1.00                  |
 
+![Confusion matrix](docs/confusion_matrix.png)
+
 ## Getting started
 
 Prerequisites: Python 3.10+
