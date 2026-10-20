@@ -28,16 +28,25 @@ python -m venv .venv
 .venv\Scripts\Activate.ps1      # Windows
 # source .venv/bin/activate     # macOS/Linux
 pip install -r requirements.txt
-pip install -e .
+pip install -e ".[dev]"
 iris-train
 ```
+
+## Running tests
+
+```bash
+pytest -v
+```
+
+The tests check data loading, the train/test split sizes, a minimum accuracy of 0.90, and that the confusion matrix image is created.
 
 ## Project structure
 
 ```
 src/iris_classifier/model.py   # load, split, train, evaluate, plot
+tests/test_model.py            # unit tests (pytest)
 docs/confusion_matrix.png      # generated evaluation chart
-pyproject.toml                 # package metadata and dependencies
+pyproject.toml                 # package metadata, dependencies, pytest config
 requirements.txt               # pinned versions for reproducibility
 ```
 
@@ -47,7 +56,7 @@ The Iris dataset is small and easy to separate, so perfect test accuracy is expe
 
 ## Tech stack
 
-Python, scikit-learn, matplotlib
+Python, scikit-learn, matplotlib, pytest
 
 ## License
 
